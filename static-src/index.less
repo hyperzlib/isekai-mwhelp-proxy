@@ -1,0 +1,232 @@
+@import "./gallery.less";
+@import "./ext/SyntaxHighlight_GeSHi/pygments.wrapper.css";
+@import "./ext/SyntaxHighlight_GeSHi/pygments.generated.css";
+//@import "./content.externallinks.css";
+@import "./mediawiki.less";
+@import "./mediawiki-replace.less";
+
+@media (min-width: 1440px) {
+  .mdui-tab a {
+    min-width: 0;
+  }
+}
+
+.main-container {
+  padding-top: 20px;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.isekai-nav-tab {
+  overflow-x: hidden;
+}
+
+.isekai-toc {
+  padding: 0;
+}
+
+.isekai-toc-item {
+  padding: 0;
+}
+
+.isekai-toc-item {
+  &:hover {
+    background-color: inherit;
+  }
+
+  .mdui-list-item-content {
+    padding-left: 16px;
+    -webkit-transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  .isekai-btn-rect {
+    width: 48px;
+    height: 48px;
+    border-radius: 0;
+
+    .mdui-icon {
+      position: relative;
+      top: -1px;
+      left: 0;
+
+      -webkit-transform: rotate(0);
+      transform: rotate(0);
+      -webkit-transition: -webkit-transform .3s cubic-bezier(.4,0,.2,1);
+      transition: -webkit-transform .3s cubic-bezier(.4,0,.2,1);
+      transition: transform .3s cubic-bezier(.4,0,.2,1);
+      transition: transform .3s cubic-bezier(.4,0,.2,1),-webkit-transform .3s cubic-bezier(.4,0,.2,1);
+      will-change: transform;
+    }
+  }
+}
+
+//展开的项目
+.mdui-collapse-item-open > .isekai-toc-item .isekai-btn-rect .mdui-icon {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+//修正新增的树状展开样式
+.isekai-collapse-item-body .mdui-list-item {
+  padding-left: 16px;
+}
+
+.isekai-collapse-item-body .mdui-list-item.mdui-collapse-item-header {
+  padding-left: 0px;
+}
+
+//修正表格中的图片
+.mdui-typo {
+  .wikitable {
+    img {
+      max-width: inherit;
+    }
+
+    pre {
+      white-space: pre-wrap;
+    }
+  }
+
+  a.image::before {
+    display: none;
+  }
+
+  .magnify > a::before {
+    display: none;
+  }
+}
+
+//修正代码框的上下边距
+.mw-highlight {
+  margin: 0 0 1.2em 0;
+}
+
+//修改侧边栏滚动区域
+#navigator, #nav-toc {
+  height: calc(100% - 48px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.mdui-drawer {
+  overflow-y: hidden;
+}
+
+//footer，来自mdui
+.doc-footer-nav {
+  height: 96px;
+}
+.doc-footer-nav-left,
+.doc-footer-nav-right {
+  height: 96px;
+}
+.doc-footer-nav-left {
+  text-align: left;
+  padding-left: 16px;
+
+  @media (min-width: 600px) {
+    padding-left: 32px;
+  }
+
+  @media (min-width: 1024px) {
+    padding-left: 48px;
+  }
+
+  .mdui-icon {
+    float: left;
+    margin-right: 10px;
+  }
+
+  .doc-footer-nav-chapter {
+    margin-left: 34px;
+  }
+}
+.doc-footer-nav-right {
+  text-align: right;
+  padding-right: 16px;
+
+  @media (min-width: 600px) {
+    padding-right: 32px;
+  }
+
+  @media (min-width: 1024px) {
+    padding-right: 48px;
+  }
+
+  @media (min-width: 1440px) {
+    padding-right: 64px;
+  }
+
+  @media (min-width: 1920px) {
+    padding-right: 128px;
+  }
+
+  .mdui-icon {
+    float: right;
+    margin-left: 10px;
+  }
+
+  .doc-footer-nav-chapter {
+    margin-right: 34px;
+  }
+}
+.doc-footer-nav-text {
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+  line-height: 24px;
+  padding-top: 24px;
+  width: 100%;
+
+  .mdui-icon {
+    padding-top: 23px;
+    width: 24px;
+  }
+
+  .doc-footer-nav-direction {
+    font-size: 15px;
+    line-height: 18px;
+    margin-bottom: 1px;
+    opacity: 0.55;
+  }
+}
+
+.mdui-theme-layout-dark {
+  .doc-footer-nav {
+    background-color: #212121 !important;
+  }
+
+  .doc-footer-nav-left,
+  .doc-footer-nav-right {
+    background-color: #212121 !important;
+  }
+
+  .doc-footer-nav-text {
+    color: #fff;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .mdui-theme-layout-auto {
+    .doc-footer-nav {
+      background-color: #212121 !important;
+    }
+
+    .doc-footer-nav-left,
+    .doc-footer-nav-right {
+      background-color: #212121 !important;
+    }
+
+    .doc-footer-nav-text {
+      color: #fff;
+    }
+  }
+}
